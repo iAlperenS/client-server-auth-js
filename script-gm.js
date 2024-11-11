@@ -1,4 +1,5 @@
 // You need GM_xmlhttpRequest to use this
+// with tampermonkey @grant GM_xmlhttpRequest
 
 let glx = GM_xmlhttpRequest;
 function ch() {
