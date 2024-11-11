@@ -10,7 +10,8 @@ function ch() {
                 alert("Valid");
                 return response.json();
             } else {
-                alert("Not valid");
+                hx();
+                re();
                 reject("Not valid");
             }
         })
@@ -18,10 +19,33 @@ function ch() {
             resolve(data.status === "valid");
         })
         .catch(error => {
-            alert("Error");
+            hx();
+            re();
             reject(error);
         });
     });
 }
 
-ch();
+function hx() {
+    // Display hides
+    document.body.style.display = "none";
+}
+
+function re() {
+    // Return the url
+    window.location.href = "https://github.com/iAlperenS";
+}
+
+ch().then(isValid => {
+    if (isValid) {
+        // True passed
+    } else {
+        // False
+        hx();
+        re();
+    }
+}).catch(error => {
+    // Error
+    hx();
+    re();
+});
